@@ -1,0 +1,117 @@
+<!-- This is a static file -->
+<!-- served from your routes in server.js -->
+
+<!-- You might want to try something fancier: -->
+<!-- html/nunjucks docs: http://mozilla.github.io/nunjucks/ -->
+<!-- jade: http://jade-lang.com/ -->
+<!-- haml: http://haml.info/tutorial.html -->
+<!-- hbs(handlebars): http://handlebarsjs.com/expressions.html -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Freestyle Lab Demo</title>
+    <link id="favicon" rel="icon" href="https://hyperweb.space/favicon.ico" type="image/x-icon">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/style.css">
+
+</head>
+<body>
+<main>
+    <img src="https://cdn.gomix.com/ebe1c119-9c54-49eb-a75e-d64d15f8170a%2FTopOfPageSmaller.png"/>
+    <div style="width: 959px;">
+        <h1>3.6.4 Text Lab: Enter Simple Text</h1>
+        <hr>
+        <p>Freestyle Labs are easier to program and test than simulations because they:</p>
+        <ul>
+            <li>Involve very little UI work <i>(just this ugly screen)</i>  UI work is HARD.</li>
+            <li>Don't require us to simulate features, we just need to be able to parse those features out of a document.  <i>This is required by simulations too</i>.</li>
+            <li>Accomodate repeatable testing, all variants of an acceptable/unacceptable document can be generated and
+                automatically tested. <i>i.e. 5 variants that should pass and 5 variants that should partially pass and 5
+                variants that should fail can all be generated just once</i>.
+            </li>
+        </ul>
+        <p>To pass this lab:</p>
+        <ol>
+            <li>Download the sample document.</li>
+            <li>Add the word <b>TestOut</b> anywhere in the document.</li>
+            <li>Save your changes.</li>
+            <li>Upload your modified document.  <i><span style="color: red">It's probably in your downloads folder.</span></i></li>
+        </ol>
+        <p><b>Note:</b> This is a text lab, obviously we'll want to actually download/upload Office
+            documents, which we can do, it'll just take more doing than put forth for this demo.</p>
+        <br>
+        <hr>
+        <table style="text-align: center; margin-left: auto; margin-right: auto; ">
+            <tr>
+                <td>
+                    <a download="Lab01.txt" href="Freestyle.txt"><input type='button' value='Download'></a>
+                </td>
+                <td>
+                    <div style="width:20px;">&nbsp;</div>
+                </td>
+                <td>
+                    <input type="button" id="loadFileXml" value="Upload"
+                           onclick="document.getElementById('fileinput').click();"/>
+                    <input type="file" style="display:none;" id="fileinput" name="fileinput"
+                           onchange='handleFileSelect();'/>
+                </td>
+            </tr>
+        </table>
+    </div>
+</main>
+<!-- <div style="margin-left: auto; margin-right: auto; width: 500px; Background: #F1F2F3; padding: 8px; border-radius: 8px"> -->
+<div class="scoredlg"  style="display:none">
+    <table>
+        <tr>
+            <td width="445">Lab Report: 3.6.4 Text Lab: Enter Simple Text</td>
+            <td>
+                <img src="https://cdn.gomix.com/ebe1c119-9c54-49eb-a75e-d64d15f8170a%2FClose.png"
+                       onclick='hideScore()'/>
+            </td>
+        </tr>
+    </table>
+    <div style="background:#FFFFFF; margin: 4px; padding: 8px; border-radius: 8px;">
+
+        <div style="background: #F6F3E9; padding: 8px;https://cdn.gomix.com/ebe1c119-9c54-49eb-a75e-d64d15f8170a/Bad.png">
+            Most Recent Performance
+        </div>
+        <div class='pass'>
+            <ul>
+                <li>Final Score: 100% (1 out of 1)</li>
+                <li>Tasks Completed: 1</li>
+            </ul>
+            <table>
+                <tr>
+                    <td><img src="https://cdn.gomix.com/ebe1c119-9c54-49eb-a75e-d64d15f8170a%2FGood.png"/></td>
+                    <td>Add the word <b>TestOut</b> anywhere in the document</td>
+                </tr>
+            </table>
+        </div>
+        <div class='fail'>
+            <ul>
+                <li>Final Score: 0% (0 out of 1)</li>
+                <li>Uncompleted tasks: 1</li>
+            </ul>
+            <table>
+                <tr>
+                    <td><img src="https://cdn.gomix.com/ebe1c119-9c54-49eb-a75e-d64d15f8170a%2FBad.png"/></td>
+                    <td>Add the word <b>TestOut</b> anywhere in the document</td>
+                </tr>
+            </table>
+
+        </div>
+    </div>
+</div>
+
+<div id="darkLayer" class="darkClass" style="display:none"></div>
+
+<script src="https://code.jquery.com/jquery-2.2.1.min.js"
+        integrity="sha256-gvQgAFzTH6trSrAWoH1iPo9Xc96QxSZ3feW6kem+O00="
+        crossorigin="anonymous"></script>
+<script src="/client.js"></script>
+
+</body>
+</html>
