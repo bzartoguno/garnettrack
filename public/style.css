@@ -131,7 +131,7 @@ footer > a {
 
 .darkClass
 {
-    background-color: white;
+    background-color: black;
     filter:alpha(opacity=50); /* IE */
     opacity: 0.5; /* Safari, Opera */
     -moz-opacity:0.50; /* FireFox */

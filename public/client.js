@@ -1,83 +1,44 @@
+// https://cdn.gomix.com/ebe1c119-9c54-49eb-a75e-d64d15f8170a%2FLab01.docx
+// https://cdn.gomix.com/ebe1c119-9c54-49eb-a75e-d64d15f8170a%2FLab01.docx
+
 // client-side js
 // run by the browser each time your view template is loaded
 
-// protip: you can rename this to use .coffee if you prefer
+$(function() {
+  $('form').submit(function(event) {
+    event.preventDefault();
+  });
 
-// by default, you've got jQuery,
-// add other scripts at the bottom of index.html
-
-$(function () {
-    $('form').submit(function (event) {
-        event.preventDefault();
-    });
 });
 
-function clearInputFile(f) {
-    if (f.value) {
-        try {
-            f.value = ''; //for IE11, latest Chrome/Firefox/Opera...
-        } catch (err) {
-        }
-        if (f.value) { //for IE5 ~ IE10
-            var form = document.createElement('form'),
-                parentNode = f.parentNode, ref = f.nextSibling;
-            form.appendChild(f);
-            form.reset();
-            parentNode.insertBefore(f, ref);
-        }
-    }
+function doOnLoad(reader) {
+  var success = reader.result.indexOf('TestOut') >= 0;
+  if (success) {
+    $('.pass').show();
+    $('.fail').hide();
+  } else {
+    $('.pass').hide();
+    $('.fail').show();
+  }
+  showScore();
 }
 
 function handleFileSelect() {
-    if (!window.File || !window.FileReader || !window.FileList || !window.Blob) {
-        alert('The File APIs are not fully supported in this browser.');
-        return;
-    }
-
-    input = document.getElementById('fileinput');
-    if (!input) {
-        //alert("Um, couldn't find the fileinput element.");
-    }
-    else if (!input.files) {
-        alert("This browser doesn't seem to support the `files` property of file inputs.");
-    }
-    else if (!input.files[0]) {
-        //alert("Please select a file before clicking 'Load'");
-    }
-    else {
-        file = input.files[0];
-        fr = new FileReader();
-        fr.onload = receivedText;
-        fr.readAsText(file);
-        //fr.readAsDataURL(file);
-    }
-}
-
-function receivedText(e) {
-    var txt = fr.result;
-    var passed = fr.result.indexOf("TestOut") >= 0;
-
-    if (passed) {
-        $(".pass").show();
-        $(".fail").hide();
-    } else {
-        $(".pass").hide();
-        $(".fail").show();
-    }
-
-    showScore();
-    clearInputFile(document.getElementById('fileinput'));
-}
-
-function showScore() {
-    document.getElementById("darkLayer").style.display = "";
-    $(".scoredlg").show();
-
+  var fi = document.getElementById('fileinput');
+  var file = fi.files[0];
+  var reader = new FileReader();
+  reader.onload = function(e) {
+    doOnLoad(reader, e);
+  }
+  reader.readAsText(file);
 }
 
 function hideScore() {
-    $(".scoredlg").hide();
-    document.getElementById("darkLayer").style.display = "none";
+  $('.scoredlg').hide();
+  $('.darkClass').hide();
 }
 
-hideScore();
+function showScore() {
+  $('.scoredlg').show();
+  $('.darkClass').show();
+}
