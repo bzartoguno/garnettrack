@@ -35,19 +35,19 @@
         </ul>
         <p>To pass this lab:</p>
         <ol>
-            <li>Download the sample document.</li>
+            <li>Download the sample word document.</li>
+            <li>Open the document</li>
+            <li>Click <img height="30px" src="https://cdn.gomix.com/ebe1c119-9c54-49eb-a75e-d64d15f8170a%2FEnableEditing.png"/></li>
             <li>Add the word <b>TestOut</b> anywhere in the document.</li>
             <li>Save your changes.</li>
             <li>Upload your modified document.  <i><span style="color: red">It's probably in your downloads folder.</span></i></li>
         </ol>
         <br>
         <hr>
-        <a download="Lab01" href="https://cdn.gomix.com/ebe1c119-9c54-49eb-a75e-d64d15f8170a%2FLab01.docx">Howdy</a>
         <table style="text-align: center; margin-left: auto; margin-right: auto; ">
             <tr>
                 <td>
-                    <a download="Lab01" href="https://cdn.gomix.com/ebe1c119-9c54-49eb-a75e-d64d15f8170a%2FLab01.docx"><input type='button' value='Download'></a>
-                    <input type="button" id="loadFileXml" value="Download2"
+                    <input type="button" id="loadFileXml" value="Download"
                            onclick="doDownload()"/>
                 </td>
                 <td>
@@ -57,13 +57,14 @@
                     <input type="button" id="loadFileXml" value="Upload"
                            onclick="document.getElementById('fileinput').click();"/>
                     <input type="file" style="display:none;" id="fileinput" name="fileinput"
-                           onchange='handleFileSelect();'/>
+                           onchange='testWordDocument();'/>
                 </td>
             </tr>
         </table>
     </div>
 </main>
-<!-- <div style="margin-left: auto; margin-right: auto; width: 500px; Background: #F1F2F3; padding: 8px; border-radius: 8px"> -->
+
+
 <div class="scoredlg"  style="display:none">
     <table>
         <tr>
@@ -112,9 +113,9 @@
 <script src="https://code.jquery.com/jquery-2.2.1.min.js"
         integrity="sha256-gvQgAFzTH6trSrAWoH1iPo9Xc96QxSZ3feW6kem+O00="
         crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.js"></script>
 <script src="/client.js"></script>
-<script src="/zip.js"></script>
-<script src="/zip-ext.js"></script>
+<script src="/testWordDoc.js"></script>
 
 </body>
 </html>
